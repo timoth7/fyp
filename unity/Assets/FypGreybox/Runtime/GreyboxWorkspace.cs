@@ -19,10 +19,10 @@ namespace FypGreybox
         public LevelData Data => string.IsNullOrEmpty(levelJson) ? LevelData.Example() : JsonUtility.FromJson<LevelData>(levelJson);
         public TemplateRules Rules => TemplateRules.Load();
         public void SetData(LevelData data) { levelJson = JsonUtility.ToJson(data, true); }
-        public bool TryApply(LevelData candidate, out List<LevelIssue> issues, bool explicitUnlock = false)
+        public bool TryApply(LevelData candidate, out List<LevelIssue> issues, bool explicitUnlock = false, bool forceErrors = false)
         {
             issues = LevelValidator.Check(candidate, Rules);
-            if (LevelValidator.HasErrors(issues)) return false;
+            if (LevelValidator.HasErrors(issues) && !forceErrors) return false;
             if (!explicitUnlock && !LevelValidator.PreservesLocked(Data, candidate))
             { issues.Add(new LevelIssue(IssueSeverity.Error, "", "候选修改了受保护的平台。")); return false; }
             SetData(candidate);
@@ -74,7 +74,7 @@ namespace FypGreybox
         {
             Application.runInBackground = true;
             var issues = LevelValidator.Check(Data, Rules);
-            if (LevelValidator.HasErrors(issues)) { Debug.LogError("FYP: invalid level. Use the workbench to repair it."); enabled = false; return; }
+            if (LevelValidator.HasErrors(issues)) { Debug.LogWarning("FYP: 关卡有红色问题（强制应用），试玩可能无法通关，可撤销回退。"); }
             Rebuild();
             var go = new GameObject("Playtest character");
             go.transform.SetParent(transform, false);

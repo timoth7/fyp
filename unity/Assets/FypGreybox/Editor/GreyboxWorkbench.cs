@@ -13,7 +13,7 @@ namespace FypGreybox.Editor
         LevelData draft;
         string observedJson, selected = "P02", status = "选择平台，修改候选，检查后应用。";
         string intentText = "在 P02 后面加一个 2 米的跳跃", intentSummary = "";
-        bool pending, acceptedWarnings;
+        bool pending, acceptedWarnings, forceErrors;
         Vector2 scroll;
         float requestedGap = 2;
         List<LevelIssue> requestIssues;
@@ -64,19 +64,19 @@ namespace FypGreybox.Editor
         void ResetDraft()
         {
             draft = workspace.Data.Copy(); observedJson = workspace.Json;
-            pending = false; acceptedWarnings = false; requestIssues = null;
+            pending = false; acceptedWarnings = false; forceErrors = false; requestIssues = null;
             if (draft.Find(selected) == null) selected = draft.platforms[0].id;
         }
-        void Changed() { pending = true; acceptedWarnings = false; requestIssues = null; SceneView.RepaintAll(); Repaint(); }
-        void Commit(LevelData candidate, string name, bool explicitUnlock = false)
+        void Changed() { pending = true; acceptedWarnings = false; forceErrors = false; requestIssues = null; SceneView.RepaintAll(); Repaint(); }
+        void Commit(LevelData candidate, string name, bool explicitUnlock = false, bool forceErrors = false)
         {
             if (workspace == null) workspace = FindObjectOfType<GreyboxWorkspace>();
             if (workspace == null) { status = "应用失败：找不到关卡。"; return; }
             var issues = LevelValidator.Check(candidate, workspace.Rules);
-            if (LevelValidator.HasErrors(issues)) { status = "应用失败：请先修复红色问题。"; return; }
-            if (!explicitUnlock && !LevelValidator.PreservesLocked(workspace.Data, candidate)) { status = "应用失败：受保护的平台已被修改。"; return; }
+            if (LevelValidator.HasErrors(issues) && !forceErrors) { status = "应用失败：请先修复红色问题，或勾选强制应用并自担风险。"; return; }
+            if (!explicitUnlock && !forceErrors && !LevelValidator.PreservesLocked(workspace.Data, candidate)) { status = "应用失败：受保护的平台已被修改。"; return; }
             Undo.RegisterCompleteObjectUndo(workspace, name);
-            if (!workspace.TryApply(candidate, out issues, explicitUnlock)) { status = "应用失败；原关卡保留。"; return; }
+            if (!workspace.TryApply(candidate, out issues, explicitUnlock || forceErrors, forceErrors)) { status = "应用失败；原关卡保留。"; return; }
             EditorUtility.SetDirty(workspace);
             EditorSceneManager.MarkSceneDirty(workspace.gameObject.scene);
             ResetDraft(); SceneView.RepaintAll(); status = name + "；可用撤销恢复。";
@@ -195,10 +195,12 @@ namespace FypGreybox.Editor
             DrawIssues(issues);
             if (issues.Count == 0) EditorGUILayout.HelpBox("配置检查通过；可通关性和体验仍需试玩。", MessageType.Info);
             bool warnings = issues.Exists(i => i.severity == IssueSeverity.Warning);
+            bool errors = LevelValidator.HasErrors(issues);
             if (warnings && pending) acceptedWarnings = EditorGUILayout.ToggleLeft("保留警告，应用后实际试玩", acceptedWarnings);
+            if (errors && pending) forceErrors = EditorGUILayout.ToggleLeft("已知有红色错误，仍强制应用（自担风险）", forceErrors);
             EditorGUILayout.BeginHorizontal();
-            using (new EditorGUI.DisabledScope(!pending || LevelValidator.HasErrors(issues) || (warnings && !acceptedWarnings)))
-                if (GUILayout.Button("应用候选", GUILayout.Height(30))) Commit(draft.Copy(), "应用关卡修改");
+            using (new EditorGUI.DisabledScope(!pending || (errors && !forceErrors) || (warnings && !acceptedWarnings && !forceErrors)))
+                if (GUILayout.Button(errors && forceErrors ? "强制应用候选" : "应用候选", GUILayout.Height(30))) Commit(draft.Copy(), errors && forceErrors ? "强制应用关卡修改" : "应用关卡修改", false, errors && forceErrors);
             using (new EditorGUI.DisabledScope(!pending))
                 if (GUILayout.Button("丢弃候选", GUILayout.Height(30))) { ResetDraft(); SceneView.RepaintAll(); }
             EditorGUILayout.EndHorizontal();
