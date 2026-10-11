@@ -23,7 +23,7 @@ const { StreamableHTTPClientTransport } = require(path.join(sdk, 'client/streama
     assert.equal(state.editor.play_mode.is_playing, false);
     receipt.unityVersion = state.unity.unity_version;
     const before = await current();
-    const result = await code('var ws = UnityEngine.Object.FindObjectOfType<FypGreybox.GreyboxWorkspace>(); var candidate = ws.Data.Copy(); candidate.platforms[1].position.x += .25f; var w = UnityEditor.EditorWindow.GetWindow<FypGreybox.Editor.GreyboxWorkbench>(); typeof(FypGreybox.Editor.GreyboxWorkbench).GetMethod("Commit", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).Invoke(w, new object[]{candidate,"Acceptance edit",false}); return ws.Json;');
+    const result = await code('var ws = UnityEngine.Object.FindObjectOfType<FypGreybox.GreyboxWorkspace>(); var candidate = ws.Data.Copy(); candidate.platforms[1].position.x += .25f; var w = UnityEditor.EditorWindow.GetWindow<FypGreybox.Editor.GreyboxWorkbench>(); typeof(FypGreybox.Editor.GreyboxWorkbench).GetMethod("Commit", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).Invoke(w, new object[]{candidate,"Acceptance edit",false,false}); return ws.Json;');
     assert.notEqual(result.data.result, before); receipt.steps.push('Workbench apply changed design');
     await call('manage_editor', { action: 'undo' });
     assert.equal(await current(), before); receipt.steps.push('Undo restored exact design JSON');
