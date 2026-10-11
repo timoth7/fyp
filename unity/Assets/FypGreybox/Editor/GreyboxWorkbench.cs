@@ -173,7 +173,13 @@ namespace FypGreybox.Editor
                 {
                     int at = draft.platforms.FindIndex(p => p.id == selected);
                     var p = draft.platforms[at]; var q = draft.platforms[at + 1];
-                    string id = "P" + Guid.NewGuid().ToString("N").Substring(0, 6).ToUpperInvariant();
+                    int maxId = 0;
+                    foreach (var existing in draft.platforms)
+                    {
+                        if (existing != null && existing.id.Length >= 2 && existing.id[0] == 'P' && int.TryParse(existing.id.Substring(1), out int n) && n > maxId) maxId = n;
+                    }
+                    string id;
+                    do { maxId++; id = "P" + maxId.ToString("D2"); } while (draft.Find(id) != null);
                     draft.platforms.Insert(at + 1, new PlatformData(id, (p.position + q.position) * .5f, new Vector3(2, 1, 2)));
                     selected = id; Changed();
                 }

@@ -41,7 +41,7 @@ namespace FypGreybox
                 error = "平台数量已达上限。";
                 return false;
             }
-            string id = "P" + Guid.NewGuid().ToString("N").Substring(0, 6).ToUpperInvariant();
+            string id = NextPlatformId(candidate);
             var size = new Vector3(4, 1, 4);
             float z = a.position.z + (a.size.z + size.z) * 0.5f + intent.requestedGap;
             var inserted = new PlatformData(id, new Vector3(a.position.x, a.position.y, z), size);
@@ -61,6 +61,23 @@ namespace FypGreybox
             }
             summary = "在 " + a.id + " 后插入 " + id + "，边缘间距 " + intent.requestedGap.ToString("0.00") + " m；橙色为预览，应用后可撤销。";
             return true;
+        }
+        /// <summary>按 P01、P02 顺序取下一个可用编号，避免随机 ID。</summary>
+        static string NextPlatformId(LevelData level)
+        {
+            int max = 0;
+            foreach (var p in level.platforms)
+            {
+                if (p == null || string.IsNullOrEmpty(p.id) || p.id.Length < 2 || p.id[0] != 'P') continue;
+                if (int.TryParse(p.id.Substring(1), out int n) && n > max) max = n;
+            }
+            string candidateId;
+            do
+            {
+                max++;
+                candidateId = "P" + max.ToString("D2");
+            } while (level.Find(candidateId) != null);
+            return candidateId;
         }
     }
 }
