@@ -1,0 +1,327 @@
+[
+  {
+    "kind": "insert",
+    "parent": "doxcnXeRPSY8SpPZiTZ1DKmDGpi",
+    "index": -1,
+    "marker": "Shift 5 · 09/10/2026 — engine candidates and the first verification loop",
+    "children": [
+      {
+        "block_type": 4,
+        "heading2": {
+          "elements": [
+            {
+              "text_run": {
+                "content": "Shift 5 · 09/10/2026 — engine candidates and the first verification loop"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "block_type": 2,
+        "text": {
+          "elements": [
+            {
+              "text_run": {
+                "content": "STATUS: candidate decision. No engine spike has been completed and no engine is formally locked. The project remains an AI-assisted rapid greyboxing / level-design tool and methodology, based on existing gameplay prototypes."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "block_type": 2,
+        "text": {
+          "elements": [
+            {
+              "text_run": {
+                "content": "What changes: UE 5.8 is now the primary candidate for a limited test of its official MCP and editor workflow. Unity 2022.3 or a specifically selected Tuanjie version is the fallback; these are separate environments and compatibility must be tested separately. Godot is not selected for this stage, to keep the verification scope manageable."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "block_type": 2,
+        "text": {
+          "elements": [
+            {
+              "text_run": {
+                "content": "Why: the first question is whether the agent and the engine can repeat a read → edit → test → inspect → reset loop, within the FYP time budget. Official MCP provides an interface to investigate; it does not prove greater stability or faster development. Installation and maintenance in the actual local/China environment also need testing."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "block_type": 2,
+        "text": {
+          "elements": [
+            {
+              "text_run": {
+                "content": "What stays: creators choose from gameplay templates, describe intentions, directly edit, playtest and revise. One template is enough for the engine spike, but the final tool still retains multiple gameplay types. The interactive exhibition outcome matters alongside the research evidence."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "block_type": 2,
+        "text": {
+          "elements": [
+            {
+              "text_run": {
+                "content": "Windows PC evidence, 09/10/2026: UE 5.7.1, Changelist 48512491, is installed. Engine Build.version and the Epic Launcher installation record agree. The candidate UE 5.8 environment is not yet installed or tested in this project. Epic has released UE 5.8; the latest official hotfix found in this check is 5.8.3, announced 22/09/2026."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "block_type": 2,
+        "text": {
+          "elements": [
+            {
+              "text_run": {
+                "content": "Limits of this evidence: this was an installation-file and documentation check, not an editor launch, MCP connection, gameplay test, build or runtime test. There is no evidence yet for engine stability, iteration speed, a playable prototype or independent runtime AI editing."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "block_type": 2,
+        "text": {
+          "elements": [
+            {
+              "text_run": {
+                "content": "Next — proposed 2–3 working-day spike: one local scene with a player, floor, obstacles, goal and one editable parameter. Fix versions; connect MCP; read and change scene state; save/reopen; playtest; test one constrained custom tool with clear errors and reset; repeat three complete loops and recover from a disconnect. Record build, video, calls/errors, elapsed time and manual interventions."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "block_type": 2,
+        "text": {
+          "elements": [
+            {
+              "text_run": {
+                "content": "Runtime is a separate gate: test a read-only state tool and a controlled parameter change in an independently packaged program. Editor Play mode is not proof of runtime support. UE MCP is Experimental; cooked/shipping tools need explicit registration. Keep this experiment on the local machine."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "block_type": 2,
+        "text": {
+          "elements": [
+            {
+              "text_run": {
+                "content": "Go / no-go: adopt UE only if the timed spike supports repeatable edits, useful validation and recovery, acceptable iteration cost and local packaging. A conditional go can cover editor-assisted development if runtime is deferred explicitly. If runtime AI changes are a first-release requirement, runtime failure is a no-go. If core connection or iteration fails, test Unity / Tuanjie with the same scene and criteria."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "block_type": 2,
+        "text": {
+          "elements": [
+            {
+              "text_run": {
+                "content": "Deployment remains provisional: desktop first for this spike; local/cloud synchronization is not its prerequisite. If browser-local, link-based play without a GPU server becomes mandatory, reconsider Unity / Godot and run a web export spike. UE Pixel Streaming has server, network and cost implications."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "block_type": 2,
+        "text": {
+          "elements": [
+            {
+              "text_run": {
+                "content": "Source checked 09/10/2026 — Epic UE 5.8 announcement",
+                "text_element_style": {
+                  "link": {
+                    "url": "https://www2.unrealengine.com/"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "block_type": 2,
+        "text": {
+          "elements": [
+            {
+              "text_run": {
+                "content": "Source checked 09/10/2026 — Epic 5.8.3 hotfix announcement",
+                "text_element_style": {
+                  "link": {
+                    "url": "https://forums.unrealengine.com/t/5-8-3-hotfix-released/2833315"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "block_type": 2,
+        "text": {
+          "elements": [
+            {
+              "text_run": {
+                "content": "Source checked 09/10/2026 — Epic Unreal MCP: Experimental, custom tools and runtime limits",
+                "text_element_style": {
+                  "link": {
+                    "url": "https://dev.epicgames.com/documentation/unreal-engine/unreal-mcp-in-unreal-editor"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "block_type": 2,
+        "text": {
+          "elements": [
+            {
+              "text_run": {
+                "content": "TianXi"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "kind": "insert",
+    "parent": "doxcnsfvmnlnfK9XeLDdU3TdpGb",
+    "index": 1,
+    "marker": "Engine checkpoint · 09/10/2026 — current candidate, not a locked implementation",
+    "children": [
+      {
+        "block_type": 4,
+        "heading2": {
+          "elements": [
+            {
+              "text_run": {
+                "content": "Engine checkpoint · 09/10/2026 — current candidate, not a locked implementation"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "block_type": 2,
+        "text": {
+          "elements": [
+            {
+              "text_run": {
+                "content": "This checkpoint updates the engine-specific Unity assumptions in the earlier v1 architecture, baseline and roadmap. Their workflow ideas remain proposals; they are not evidence of an implemented or verified product. The candidate order is UE 5.8 → Unity 2022.3 / separately verified Tuanjie; Godot is deferred."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "block_type": 2,
+        "text": {
+          "elements": [
+            {
+              "text_run": {
+                "content": "Current device: Windows PC. Installed engine: UE 5.7.1 (Changelist 48512491), checked from local installation files. Candidate environment: UE 5.8 series, with the exact formal patch version to be recorded at installation. Latest official hotfix found on 09/10/2026: 5.8.3. No engine launch, gameplay, packaging or runtime result is claimed."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "block_type": 2,
+        "text": {
+          "elements": [
+            {
+              "text_run": {
+                "content": "First milestone: a small pseudo-sandbox using one existing gameplay template, a few editable objects and a clear edit / playtest loop. This limits the first test; it does not replace the intended variety of gameplay templates or the describe / direct edit / play / revise interface."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "block_type": 2,
+        "text": {
+          "elements": [
+            {
+              "text_run": {
+                "content": "Proposed gate before implementation: a 2–3 working-day engine spike with scene read/edit/save/reopen, player movement/collision/goal, one custom constrained tool, explicit invalid-input errors, reset, three repeatable loops and disconnect recovery. Evidence: playable build, short recording, version list, calls/errors, actual time and remaining manual work."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "block_type": 2,
+        "text": {
+          "elements": [
+            {
+              "text_run": {
+                "content": "Runtime promise: an editor MCP does not establish an independent in-game AI editing system. A packaged read-only tool and a controlled write tool must be tested separately. If required in the first release, runtime failure prevents adoption; otherwise an explicitly editor-only first milestone can be considered."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "block_type": 2,
+        "text": {
+          "elements": [
+            {
+              "text_run": {
+                "content": "Research evidence remains open: rapid iteration, control, repair cost and quality must be measured in practice. A manual baseline should be recorded in the selected, tested engine. Current engine-specific claims are design hypotheses until the spike provides observations."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "block_type": 2,
+        "text": {
+          "elements": [
+            {
+              "text_run": {
+                "content": "Full decision gates and reasons: see DIRECTION LOG, Shift 5, 09/10/2026. Further decisions needed: first gameplay template, editable boundaries, content export/use and the first-release runtime requirement."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "block_type": 2,
+        "text": {
+          "elements": [
+            {
+              "text_run": {
+                "content": "TianXi"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "kind": "update",
+    "blockId": "doxcnKSzpkcNSQ4lLZillaXPXNf",
+    "expectedOld": "v1 · 25/09/2026. Living document: updated in place as the plan changes. The reasons for each change are kept in DIRECTION LOG.",
+    "text": "v1.1 · 09/10/2026. Living document: engine candidates and Windows PC evidence updated; no engine is formally locked. Earlier v1 implementation details remain proposals. Reasons and verification gates are kept in DIRECTION LOG, Shift 5."
+  }
+]

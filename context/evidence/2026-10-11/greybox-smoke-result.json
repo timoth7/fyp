@@ -1,0 +1,13 @@
+{
+  "device": "Windows PC",
+  "steps": [
+    "Workbench apply changed design",
+    "Undo restored exact design JSON",
+    "Redo restored exact edited design JSON",
+    "Scene reopened with exact design",
+    "Saved JSON reloaded with exact design"
+  ],
+  "unityVersion": "2022.3.62f1c1",
+  "savePath": "C:/Users/Administrator/AppData/LocalLow/DefaultCompany/My project (2)\\FypGreybox\\level.json",
+  "status": "passed"
+}

@@ -1,0 +1,119 @@
+{
+  "result": {
+    "success": true,
+    "message": "Test job status retrieved.",
+    "error": null,
+    "data": {
+      "job_id": "c2867bd45855457ea6bd03e2770ecc2f",
+      "status": "succeeded",
+      "mode": "EditMode",
+      "started_unix_ms": 1791715133867,
+      "finished_unix_ms": 1791715136590,
+      "last_update_unix_ms": 1791715136590,
+      "progress": {
+        "completed": 8,
+        "total": 8,
+        "current_test_full_name": null,
+        "current_test_started_unix_ms": null,
+        "last_finished_test_full_name": "FypGreybox.Tests.LevelTests.SaveReloadAndCorruptionRecoveryPreserveDesign",
+        "last_finished_unix_ms": 1791715136363,
+        "stuck_suspected": false,
+        "editor_is_focused": false,
+        "run_in_background": false,
+        "focus_nudge_attempts": null,
+        "focus_nudge_limit": null,
+        "focus_nudge_status": null,
+        "blocked_reason": null,
+        "failures_so_far": [],
+        "failures_capped": false
+      },
+      "error": null,
+      "result": {
+        "mode": "EditMode",
+        "summary": {
+          "total": 8,
+          "passed": 8,
+          "failed": 0,
+          "skipped": 0,
+          "durationSeconds": 0.4390345,
+          "resultState": "Passed"
+        },
+        "results": [
+          {
+            "name": "DefaultRouteHasNoErrorsOrWarnings",
+            "fullName": "FypGreybox.Tests.LevelTests.DefaultRouteHasNoErrorsOrWarnings",
+            "state": "Passed",
+            "durationSeconds": 0.0074071,
+            "message": null,
+            "stackTrace": null,
+            "output": ""
+          },
+          {
+            "name": "ElevationChangesRequirePlaytestWarning",
+            "fullName": "FypGreybox.Tests.LevelTests.ElevationChangesRequirePlaytestWarning",
+            "state": "Passed",
+            "durationSeconds": 0.0006407,
+            "message": null,
+            "stackTrace": null,
+            "output": ""
+          },
+          {
+            "name": "GapUsesEdgesAndHandlesDiagonalSeparation",
+            "fullName": "FypGreybox.Tests.LevelTests.GapUsesEdgesAndHandlesDiagonalSeparation",
+            "state": "Passed",
+            "durationSeconds": 0.0026241,
+            "message": null,
+            "stackTrace": null,
+            "output": ""
+          },
+          {
+            "name": "InvalidCandidateDoesNotChangeWorkspace",
+            "fullName": "FypGreybox.Tests.LevelTests.InvalidCandidateDoesNotChangeWorkspace",
+            "state": "Passed",
+            "durationSeconds": 0.0008963,
+            "message": null,
+            "stackTrace": null,
+            "output": ""
+          },
+          {
+            "name": "LocksRejectModificationAndDeletionButAllowOtherObjects",
+            "fullName": "FypGreybox.Tests.LevelTests.LocksRejectModificationAndDeletionButAllowOtherObjects",
+            "state": "Passed",
+            "durationSeconds": 0.0004388,
+            "message": null,
+            "stackTrace": null,
+            "output": ""
+          },
+          {
+            "name": "NumericRequestAndCandidateUseSameWarningAndErrorThresholds",
+            "fullName": "FypGreybox.Tests.LevelTests.NumericRequestAndCandidateUseSameWarningAndErrorThresholds",
+            "state": "Passed",
+            "durationSeconds": 0.0011398,
+            "message": null,
+            "stackTrace": null,
+            "output": ""
+          },
+          {
+            "name": "RejectsDuplicateIdsNaNAndUnknownVersions",
+            "fullName": "FypGreybox.Tests.LevelTests.RejectsDuplicateIdsNaNAndUnknownVersions",
+            "state": "Passed",
+            "durationSeconds": 0.0015945,
+            "message": null,
+            "stackTrace": null,
+            "output": ""
+          },
+          {
+            "name": "SaveReloadAndCorruptionRecoveryPreserveDesign",
+            "fullName": "FypGreybox.Tests.LevelTests.SaveReloadAndCorruptionRecoveryPreserveDesign",
+            "state": "Passed",
+            "durationSeconds": 0.0062597,
+            "message": null,
+            "stackTrace": null,
+            "output": ""
+          }
+        ]
+      }
+    },
+    "hint": null
+  }
+}

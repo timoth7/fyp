@@ -1,0 +1,65 @@
+{
+  "result": {
+    "success": true,
+    "message": "Test job status retrieved.",
+    "error": null,
+    "data": {
+      "job_id": "060671ca32b443f9b2494e5a13d33b8e",
+      "status": "succeeded",
+      "mode": "PlayMode",
+      "started_unix_ms": 1791715172759,
+      "finished_unix_ms": 1791715173831,
+      "last_update_unix_ms": 1791715173831,
+      "progress": {
+        "completed": 2,
+        "total": 2,
+        "current_test_full_name": null,
+        "current_test_started_unix_ms": null,
+        "last_finished_test_full_name": "FypGreybox.Tests.PlayLoopTests.FallReportsObjectAndRespawnsWithoutChangingDesign",
+        "last_finished_unix_ms": 1791715173798,
+        "stuck_suspected": false,
+        "editor_is_focused": false,
+        "run_in_background": false,
+        "focus_nudge_attempts": null,
+        "focus_nudge_limit": null,
+        "focus_nudge_status": null,
+        "blocked_reason": null,
+        "failures_so_far": [],
+        "failures_capped": false
+      },
+      "error": null,
+      "result": {
+        "mode": "PlayMode",
+        "summary": {
+          "total": 2,
+          "passed": 2,
+          "failed": 0,
+          "skipped": 0,
+          "durationSeconds": 0.2081046,
+          "resultState": "Passed"
+        },
+        "results": [
+          {
+            "name": "CharacterCanTraverseDefaultRouteAndReachGoal",
+            "fullName": "FypGreybox.Tests.PlayLoopTests.CharacterCanTraverseDefaultRouteAndReachGoal",
+            "state": "Passed",
+            "durationSeconds": 0.1744891,
+            "message": null,
+            "stackTrace": null,
+            "output": ""
+          },
+          {
+            "name": "FallReportsObjectAndRespawnsWithoutChangingDesign",
+            "fullName": "FypGreybox.Tests.PlayLoopTests.FallReportsObjectAndRespawnsWithoutChangingDesign",
+            "state": "Passed",
+            "durationSeconds": 0.0277214,
+            "message": null,
+            "stackTrace": null,
+            "output": ""
+          }
+        ]
+      }
+    },
+    "hint": null
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "version": "platform-jump-rules-v1",
+  "recommendedGap": 2.6,
+  "allowedGap": 4.5,
+  "moveSpeed": 6.0,
+  "jumpHeight": 1.4,
+  "gravity": -22.0,
+  "minSize": 2.0,
+  "maxSize": 12.0,
+  "maxCoordinate": 100.0,
+  "maxElevation": 3.0,
+  "maxPlatforms": 24
+}
